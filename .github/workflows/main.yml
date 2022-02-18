@@ -22,10 +22,24 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v2
         with:
-          node-version: '14'
-      - run: npm install
-      - run: npm run serve
+          node-version: '16'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+      
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.2.5
+        with:
+          branch: main # The branch the action should deploy to.
+          folder: dist # The folder the action should deploy.
