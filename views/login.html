@@ -1,0 +1,25 @@
+
+    <%- include('header') -%>
+    <div class="container" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; ">
+      <form enctype="application/x-www-form-urlencoded" action="/login" method="post" class="row g-3">
+        <div class="col-md-12">
+          <label for="inputEmail4" class="form-label">User</label>
+          <input type="user" name="admin" value="admin" class="form-control" id="inputEmail4">
+        </div>
+        <div class="col-md-12">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input type="password" name="password" value="admin" class="form-control" id="inputPassword4">
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document.querySelector('button').addEventListener('click',e=>{
+        document.querySelector('form').submit()
+      })
+    </script>
+
+    <%- include('footer') -%>
