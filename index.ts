@@ -12,7 +12,7 @@ import koaBody from 'koa-body'
 const app: Application = new Koa()
 const router: Router = new Router()
 
-const port = 4000
+const port = 80
 const staticPath = '/static'
 const __dirname = path.resolve()
 
